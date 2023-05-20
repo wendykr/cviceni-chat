@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+	<link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script type="module" src="script.js"></script>
+    
+    <title>Webová aplikace</title>
+  </head>
+
+	<body>
+		<div class="container">
+			<h1>Czechichat</h1>
+
+			<form id="formular">
+				<div class="form__field">
+					<label class="form__label">Your name: <input class="form__input" type="text" id="name" required></label>
+				</div>
+				<div class="form__field">
+					<label class="form__label">Message: <input class="form__input" type="text" id="message" required></label>
+				</div>
+				<input class="form__button" type="submit" value="Send">
+			</form>
+			<div id="result"></div>
+		</div>
+	</body>
+</html>
