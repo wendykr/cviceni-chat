@@ -1,3 +1,5 @@
+import { Message } from './Message/index.js';
+
 const formularElm = document.querySelector('#formular');
 const nameElm = document.querySelector('#name');
 const messageElm = document.querySelector('#message');
@@ -35,13 +37,16 @@ const loadMessage = () => {
     })
     .then(response => response.json())
     .then(data => {
-        document.querySelector('#result').innerHTML = data.messages
-        .map(oneMessage => 
-            `<div class="result__item">
-                <p><span class="result__name">${oneMessage.name}</span> <span class="result__date">${oneMessage.date}</span></p>
-                <p class="result__message">${oneMessage.message}</p>
-             </div>`)
-        .join('');
+
+        const resultElm = document.querySelector('#result');
+
+        const listMessage = data.messages.map(oneMessage => Message({
+            name: oneMessage.name,
+            date: oneMessage.date,
+            message: oneMessage.message
+        }));
+
+        resultElm.append(...listMessage);
     })
 }
 
