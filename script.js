@@ -26,6 +26,8 @@ const process = (event) => {
             messageElm.value = '';
         }
     });
+
+    setInterval(loadMessage, 3000);
 }
 
 const loadMessage = () => {
@@ -46,11 +48,11 @@ const loadMessage = () => {
             message: oneMessage.message
         }));
 
+        resultElm.innerHTML = '';
         resultElm.append(...listMessage);
     })
 }
 
 loadMessage();
-setInterval(loadMessage, 3000);
 
 formularElm.addEventListener('submit', process);
