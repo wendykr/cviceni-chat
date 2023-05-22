@@ -1,8 +1,9 @@
-import { Message } from './Message/index.js';
+import { LoadMessage } from './LoadMessage/index.js';
 
 const formularElm = document.querySelector('#formular');
 const nameElm = document.querySelector('#name');
 const messageElm = document.querySelector('#message');
+const containerElm = document.querySelector('.container');
 
 const process = (event) => {
     event.preventDefault();
@@ -28,30 +29,8 @@ const process = (event) => {
     });
 }
 
-const loadMessage = () => {
-    fetch('https://czechichat.deno.dev/api/list-messages', {
-        method: 'GET',
-        headers: {
-        'Content-Type': 'application/json'
-        },
-    })
-    .then(response => response.json())
-    .then(data => {
+containerElm.append(LoadMessage());
 
-        const resultElm = document.querySelector('#result');
-
-        const listMessage = data.messages.map(oneMessage => Message({
-            name: oneMessage.name,
-            date: oneMessage.date,
-            message: oneMessage.message
-        }));
-
-        resultElm.innerHTML = '';
-        resultElm.append(...listMessage);
-    })
-}
-
-loadMessage();
-setInterval(loadMessage, 3000);
+setInterval(LoadMessage, 3000);
 
 formularElm.addEventListener('submit', process);

@@ -55,8 +55,3 @@ h1 {
 .form__button:hover {
 	background-color: #083872;
 }
-
-#result {
-  width: 500px;
-  margin-top: 20px;
-}
