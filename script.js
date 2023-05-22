@@ -26,8 +26,6 @@ const process = (event) => {
             messageElm.value = '';
         }
     });
-
-    setInterval(loadMessage, 3000);
 }
 
 const loadMessage = () => {
@@ -54,5 +52,6 @@ const loadMessage = () => {
 }
 
 loadMessage();
+setInterval(loadMessage, 3000);
 
 formularElm.addEventListener('submit', process);
